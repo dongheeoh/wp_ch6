@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script>
+//null vs undefined
+var myVar;
+var myVar2=null;
+
+
+console.log(myVar+" : "+ myVar2);
+console.log(myVar==myVar2);
+console.log(myVar===myVar2); //type까지 같이 비교
+// == (!=, equality, 값의 등치성 , 형변환o)
+
+
+console.log("2"==2);
+console.log(true==1);
+console.log('abc'==new String('abc'));
+console.log('false'==false);
+console.log(0==false);
+
+
+
+//=== (!== , identity, 객체의 동일성 , 형변환x)
+console.log("2"===2);
+console.log(true===1);
+console.log('abc'===new String('abc'));
+
+//추천 : ==연산자를 사용할때는 엄격하게 형변환을 해서
+//두 피연산자의 타입을 맞춘다.
+console.log(parseInt("5")==5);
+
+//변수 범위(var 사용 유무, var를 사용했을때, 변수의 범위)
+i=10;
+f= function(){
+	// 함수 안에서 var를 사용해서 변수를 정의하면
+	var i= 20;
+	console.log(i);
+	i=i-10;
+}
+
+f();
+console.log(i);
+// 결론 : var를 달아서 써줘라
+
+//statement 구분 : JS Engine이 읽어서 실행하는 단위
+// \n '
+
+var str="Hello world";
+console.log(str);
+
+
+//동적타이핑(Dynamical Typing)
+//실행중의 변수의 타입을 결정한다.
+var a=10;
+console.log(a+" : "+typeof a);
+
+a="Hello world";
+console.log(a+":"+typeof a);
+
+//추천 : 엄격하게 하나의 변수 타입은 변경하지 않도록 코딩
+
+//전역(global) 객체 window
+console.log(window.a);
+
+var o={};
+o.name="둘리";
+o.age=new Number(20);
+o.age.man=19;
+
+
+console.log(window.o);
+console.log(window.o.name);
+console.log(window.o.age);
+console.log(window.o.age.man);
+
+console.log(o);
+console.log(o.name);
+console.log(o.age);
+console.log(o.age.man);
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
