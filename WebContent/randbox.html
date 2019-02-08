@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="rectangle.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var count=0;
+	var intervalId= setInterval(function(){
+		 
+	++count;
+	console.log(count);
+	var randLeft= Math.floor(Math.random()*250+1);
+	 var randTop= Math.floor(Math.random()*250+1);
+	 var randwidth= Math.floor(Math.random()*700+1);
+	 var randheight= Math.floor(Math.random()*700+1);
+	 
+	 var randRColor= Math.floor(Math.random()*255+1);
+	 var randGColor= Math.floor(Math.random()*255+1);
+	 var randBColor= Math.floor(Math.random()*255+1);
+	 
+	 var randBackColor="RGB("+randRColor+","+randGColor+","+randBColor+")";
+	
+	
+	 var rcount=new Rectangle(randLeft,randTop,randwidth,randheight,randBackColor);
+	 
+	 rcount.show();
+	 
+	 if(count==10){
+		 clearInterval(intervalId);
+	 }
+
+ },1000)
+	 
+
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
