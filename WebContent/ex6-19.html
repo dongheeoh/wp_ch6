@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+ /* form  validation (폼 유효성 체크)
+ 	
+ 	client: JavaScript -> UX(사용자 경험을 향상시켜주는 목적)
+ 	server: Servlet(Controller) -> 보안(정보 보호)
+ 	
+ 	양쪽 다 반드시 해주어야 한다.(사용목적이 다르기 떄문에)
+ */
+window.onload=function(){
+ 	document.getElementById("user-id").onchange=function(){
+ 		console.log(this.value);
+ 	}
+ 		
+ 	document.getElementById("user-join-form").onsubmit=function(){
+ 		// form validation
+ 		
+ 		//1. 아이디
+ 		var elInput=document.getElementById("user-id");
+ 		if(elInput.value ==""){
+ 			alert("아이디는 필수로 입력");
+ 			elInput.focus();
+ 			return false;
+ 		}
+ 		
+ 		var elPassword=document.getElementById("user-pwd");
+ 		if(elPassword.value ==""){
+ 			alert("비밀번호는 필수로 입력");
+ 			elPassword.focus();
+ 			return false;
+ 		}
+ 		
+ 		
+ 		
+ 		return true;
+ 	}
+}
+</script>
+</head>
+<body>
+	<form id="user-join-form" action="join" method="post">
+		아이디:<input type="text" id="user-id" name="user-id" value="">
+		<br>
+		<br> 
+		비밀번호:<input type="password" id="user-pwd" name="user-pwd" value="">
+		<br> 
+		<br>
+		직업:
+		<select id="user-job">
+			<option>value1</option>
+			<option>value2</option>
+			<option>value3</option>
+			<option>value4</option>
+			<option>value5</option>
+		</select>
+		<br> 
+		<br>
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

@@ -3,43 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script type="text/javascript" src="browser-detect.js"></script>
 <script type="text/javascript">
-
-window.onunload = function(){
-	alert("!");	
+var displayDate=function(){
+	var pEl=document.getElementById("demo");
+	pEl.innerHTML=new Date();
 }
 
-function onUnload = function(){
-	alert("진짜 나갈래?");	
-} 
+window.onload=function(){
+	/*	navigator-> BOM(Browser Object MOdel)
+		document -> DOM(Document Object MOdel)
+	*/
+	BrowserDetect.init();
+	console.log(BrowserDetect.browser+"-:-"+
+			BrowserDetect.version+"-:-"+BrowserDetect.OS);
+	//브라우저 종류를 알아내느 내장객체 navigator의 문자열	console.log(navigator.userAgent);
+		console.log(navigator.userAgent+"-:-"+
+			navigator.appVerssion+"-:-"+
+			navigator.vendor+"-:-"+
+			navigator.platform);
+	// 쿠키체크
+	if(navigator.cookieEnabled==true){
+		console.log("쿠키를 사용할 수 있다")
+	}else{
+		console.log("쿠키를 사용 없 수 있다")
+	}
+	
+	
+	
+	
+	var btnEl=document.getElementById("my-btn");
+	var pEl=document.getElementById("demo");
+	
+	
+//	btnEl.onclick=function(){	
+//		pEl.innerHTML=new Date();
+//	}
+	
+//	pEl.onmouseover=function(){
+//		pEl.innerHTML=new Date();
+//	}
+	
+//	pEl.onmouseout=function(){
+//		pEl.innerHTML="";
+//	}
 
-function onLoad(){
-	var btn = document.getElementById("myBtn");
-	btn.onclick = displayDate;
-	btn.onmouseover = displayDate;
-	btn.onmouseout = hideDate;	
+	btnEl.onclick=displayDate;
+	pEl.onmouseover=displayDate;
+	pEl.onmouseout=function(){
+		pEl.innerHTML="";
+	}
 }
-
-function displayDate(){
-   document.getElementById("demo").innerHTML = Date();
+window.onunload=function(){
+	console.log("unloaded!!!!!!!!!!!!!!!!!!!!!!!");
 }
-
-function hideDate(){
-   document.getElementById("demo").innerHTML = "";
-}
-
 
 </script>
 
 </head>
 
-<body onload="onLoad()" onunload="onUnload()">
+<body>
 
-<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
-
-<button id="myBtn">Try it</button>
-
+<button id="my-btn">Try it</button>
 <p id="demo"></p>
 
 </body>
